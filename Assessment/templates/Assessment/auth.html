@@ -1,0 +1,30 @@
+{% extends 'Assessment/base.html' %}
+{% load staticfiles %}
+{% block title %}Auth{% endblock %}
+{% block body %}
+
+<div class="container">
+  <div class="panel panel-success width-fix">
+    <div class="panel-heading">
+      <h2 class="panel-title">Sign In</h2>
+    </div>
+    <div class="panel-body">
+      <form class="form-signin">
+      {% csrf_token %}
+        <h2 class="form-signin-heading">Please sign in</h2>
+
+        <!-- <div class="alert alert-danger hide" role="alert"><strong>{{error.code}}</strong>{{error.message}} </div>
+        <div class="alert alert-success hide" role="alert">{{message}}</div> -->
+
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+        <center style="margin: 5px;"><i>or</i></center>
+        <button class="btn btn-lg btn-warning btn-block">Sign Up</button>
+      </form> 
+    </div>
+  </div>
+</div>
+
+{% endblock %}

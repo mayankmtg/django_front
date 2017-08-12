@@ -1,0 +1,42 @@
+{% extends 'Assessment/base.html' %}
+{% load staticfiles %}
+{% block title %}Assessment{% endblock %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="{% static 'Assessment/wizard.css' %}">
+
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="{% url 'Assessment:wizard' 'home' %}">Home<span class="sr-only">(current)</span></a></li>
+            <li><a href="{% url 'Assessment:wizard' 'questionbank' %}">Create Questions Bank</a></li> 
+            <li><a href="{% url 'Assessment:wizard' 'questions' %}">Add Questions</a></li>
+            <li><a href="{% url 'Assessment:wizard' 'skills' %}">Create Skills</a></li>
+            <li><a href="{% url 'Assessment:wizard' 'assignskills' %}">Assign Skills</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="{% url 'Assessment:create' %}">Create Assessment</a></li>
+            <li class="disabled"><a href="#">Finished</a></li>
+          </ul>
+        </div>
+         {% ifequal wiz_page "home" %}
+         	{% include 'Assessment/wizard/home.html' %}
+         {% endifequal %}
+         {% ifequal wiz_page "questionbank" %}
+         	{% include 'Assessment/wizard/questionbank.html' %}
+         {% endifequal %}
+         {% ifequal wiz_page "questions" %}
+         	{% include 'Assessment/wizard/questions.html' %}
+         {% endifequal %}
+         {% ifequal wiz_page "skills" %}
+         	{% include 'Assessment/wizard/skills.html' %}
+         {% endifequal %}
+         {% ifequal wiz_page "assignskills" %}
+         	{% include 'Assessment/wizard/assignskills.html' %}
+         {% endifequal %}
+
+        
+	      
+      </div>
+    </div>
+{% endblock %}

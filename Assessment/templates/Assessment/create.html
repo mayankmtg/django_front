@@ -1,0 +1,38 @@
+{% extends 'Assessment/base.html' %}
+{% load staticfiles %}
+{% block title %}Create{% endblock %}
+{% block body %}
+
+
+<div class="container">
+    <div class="row form-group">
+        <div class="col-xs-12">
+            <ul class="nav nav-pills nav-justified thumbnail setup-panel warning">
+                <li class="active"><a href="#step-1">
+                <h4 class="list-group-item-heading">Step 1</h4>
+                <p class="list-group-item-text">Select Question Bank</p>
+                </a></li>
+                <li class="disabled"><a href="#step-2">
+                <h4 class="list-group-item-heading">Step 2</h4>
+                <p class="list-group-item-text">Name and Instructions</p>
+                </a></li>
+                <li class="disabled"><a href="#step-3">
+                <h4 class="list-group-item-heading">Step 3</h4>
+                <p class="list-group-item-text">Select Questions</p>
+                </a></li>
+                <li class="disabled"><a href="#step-4">
+                <h4 class="list-group-item-heading">Step 4</h4>
+                <p class="list-group-item-text">Configuration</p>
+                </a></li>    
+            </ul>
+        </div>
+    </div>
+</div>	
+
+{% include 'Assessment/steps/step1.html' %}
+{% include 'Assessment/steps/step2.html' %}
+{% include 'Assessment/steps/step3.html' %}
+{% include 'Assessment/steps/step4.html' %}
+
+
+{% endblock %}
