@@ -1,0 +1,59 @@
+{% extends 'Assessment/wizard.html' %}
+{% load staticfiles %}
+{% block wizardType %}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header"><center>Bank Details</center></h1>
+      <h2>Bank Name: {{ cur_bank.name }}</h2>
+    
+
+      <h3>Skill Set Range:</h3>
+      <br>
+      <div class="row">
+      {% for skill in req_skills %}
+      <div class="col-sm-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
+        {{ skill.skill }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+      
+      <h3>Questions In Bank:</h3>
+      <div class="row">
+      {% for ques in req_ques %}
+      <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        {{ ques.question }}?
+        </div>
+        <div class="panel-body">
+        <div class="radio disabled">
+            <label><input type="radio" name="optradio" disabled>{{ques.A}}</label>
+          </div>
+          <div class="radio disabled">
+            <label><input type="radio" name="optradio" disabled>{{ques.B}}</label>
+          </div>
+          <div class="radio disabled">
+            <label><input type="radio" name="optradio" disabled>{{ques.C}}</label>
+          </div>
+          <div class="radio disabled">
+            <label><input type="radio" name="optradio" disabled>{{ques.D}}</label>
+          </div>
+          <div class="container">
+              Ans: {{ques.ans}}
+          </div>
+          <div class="container">
+              Skill_1: {{ques.skill1.skill}}
+          </div>
+          <div class="container">
+              Skill_2: {{ques.skill2.skill}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

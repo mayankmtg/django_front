@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Skill,Question,questionBank,Assessment
 
-# Register your models here.
+admin.site.register(questionBank)
+admin.site.register(Skill)
+admin.site.register(Assessment)
