@@ -12,9 +12,35 @@ class assessmentCreateHome(generic.ListView):
 	def get_queryset(self):
 		# the returned queryset is in the variable object_list
 		return Assessment.objects.all()
-class assessmentCreateDetail(generic.DetailView):
-	model=Assessment
-	template_name="Assessment/create/detail.html"
+def assessmentCreateDetail(request, create_id):
+	cur_assess=Assessment.objects.get(pk=create_id)
+	context = {
+		'cur_assess':cur_assess,
+	}
+	return render(request, 'Assessment/create/detail.html',context )
+
+
+def assessmentTake(request, link):
+	cur_assess=Assessment.objects.get(link=link)
+	cur_bank=cur_assess.bank
+	questions=cur_bank.question_set.all()
+	context = {
+		'cur_assess':cur_assess,
+		'cur_bank': cur_bank,
+		'questions':questions,
+	}
+	return render(request, 'Assessment/take/page.html',context )
+
+def assessmentTakeStart(request, link):
+	cur_assess=Assessment.objects.get(link=link)
+	cur_bank=cur_assess.bank
+	questions=cur_bank.question_set.all()
+	context = {
+		'cur_assess':cur_assess,
+		'cur_bank': cur_bank,
+		'questions':questions,
+	}
+	return render(request, 'Assessment/take/start.html',context )
 
 class assessmentCreateAssessment(CreateView):
 	model = Assessment

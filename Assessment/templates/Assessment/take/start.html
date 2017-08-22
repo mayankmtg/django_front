@@ -1,0 +1,54 @@
+{% extends 'Assessment/base.html' %}
+{% load staticfiles %}
+{% block title %}learn!ze{% endblock %}
+{% block body %}
+<div class="container">
+<center><h2>{{cur_bank.name}}</h2></center>
+
+<form class="form-horizontal" action="" method="post">
+{% csrf_token %}
+<div class="form-group">
+	<label class="control-label col-sm-2">Name:</label>
+	<div class="col-sm-5">
+	<input type="text" class="form-control">
+	</div>
+</div>
+<div class="form-group">
+	<label class="control-label col-sm-2">Id:</label>
+	<div class="col-sm-5">
+	<input type="text" class="form-control">
+	</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-body">
+
+
+<ol>
+	{% for question in questions %}
+	<li>
+		<b>Q:&nbsp;&nbsp;{{question.question}}</b>
+		<div class="radio">
+			<label><input type="radio" name="{{question.pk}}">{{question.A}}</label>
+		</div>
+		<div class="radio">
+			<label><input type="radio" name="{{question.pk}}">{{question.B}}</label>
+		</div>
+		<div class="radio">
+			<label><input type="radio" name="{{question.pk}}">{{question.C}}</label>
+		</div>
+		<div class="radio">
+			<label><input type="radio" name="{{question.pk}}">{{question.D}}</label>
+		</div>
+	</li>
+	<br>
+	{% endfor %}
+	<button type="submit" class="btn btn-default">Submit</button>
+</ol>
+</form>
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}

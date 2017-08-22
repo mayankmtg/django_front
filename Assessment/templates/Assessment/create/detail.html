@@ -1,0 +1,59 @@
+{% extends 'Assessment/wizard.html' %}
+{% load staticfiles %}
+{% block wizardType %}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header"><center>Assessment Details</center></h1>
+      <div class="panel panel-default">
+        <div class="panel-heading">{{ cur_assess.name }}</div>
+        <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-4">
+              <h4>View At:</h4>
+            </div>
+            <div class="col-sm-4">
+              <h4>{{cur_assess.link}}</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <h4>Description:</h4>
+            </div>
+            <div class="col-sm-4">
+              <h4>{{cur_assess.desc}}</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <h4>Duration:</h4>
+            </div>
+            <div class="col-sm-4">
+              <h4>{{cur_assess.duration}} mins</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <h4>Positive:</h4>
+            </div>
+            <div class="col-sm-4">
+              <h4>{{cur_assess.positive}}</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <h4>Negative:</h4>
+            </div>
+            <div class="col-sm-4">
+              <h4>{{cur_assess.negative}}</h4>
+            </div>
+          </div>
+          <h3>Question Bank Used:</h3>
+          <h4><a href="{% url 'Assessment:wizardBankDetail' cur_assess.bank.pk %}">{{cur_assess.bank}}</a></h4>
+        </div>
+      </div>
+    
+
+    
+      
+    
+</div>
+{% endblock %}

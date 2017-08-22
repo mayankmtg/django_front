@@ -16,8 +16,9 @@ urlpatterns = [
     url(r'^wizard/questionbank/(?P<bank_id>[0-9]+)/$', views.assessmentWizardBankDetail, name='wizardBankDetail'),
     url(r'^create/home$', views.assessmentCreateHome.as_view(), name='createHome'),
     url(r'^create/createAssessment$', views.assessmentCreateAssessment.as_view(), name='createAssessment'),
-    url(r'^create/assessment/(?P<pk>[0-9]+)/$', views.assessmentCreateDetail.as_view(), name='assessmentCreateDetail'),
-
+    url(r'^create/assessment/(?P<create_id>[0-9]+)/$', views.assessmentCreateDetail, name='assessmentCreateDetail'),
+    url(r'^take/(?P<link>\w+)/$', views.assessmentTake, name='take'),
+    url(r'^take/start/(?P<link>\w+)/$', views.assessmentTakeStart, name='takeStart'),
     # url(r'^contact/$', views.contact, name='contact'),
     # url(r'^blog/$', views.blog, name='blog'),
     # url(r'^clientele/$', views.clientele, name='clientele'),
