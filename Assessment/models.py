@@ -58,3 +58,9 @@ class Assessment(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class Result(models.Model):
+	user_name=models.CharField(max_length=250)
+	user_id=models.CharField(max_length=250)
+	total_score=models.IntegerField(default=0)
+	current_score=models.IntegerField(default=0)

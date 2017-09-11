@@ -9,3 +9,9 @@ class UserForm(forms.ModelForm):
 	class Meta:
 		model ='User'
 		fields =['username', 'email', 'password']
+
+class resultForm(forms.ModelForm):
+	user_name=forms.CharField()
+	password=forms.CharField()
+	total_score=forms.IntegerField()
+	current_score=forms.IntegerField()
